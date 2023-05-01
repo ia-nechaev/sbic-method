@@ -35,7 +35,7 @@ wf_fit<-readRDS("sbic_model.Rds")
 ```
 
 ```{r}
-## Selecting column with text form a df
+## Selecting column with text form a dataframe named "text_unnested"
 
 text_to_predict <- text_unnested %>% select(text)
 ```
@@ -47,7 +47,7 @@ text_predicted <- wf_fit %>% predict(text_to_predict)
 ```
 
 ```{r}
-## Stating the impact type
+## Stating the impact type: creating a column called "gcode" and putting there the results of model run
 
 text_unnested %<>% mutate(gcode=text_predicted$.pred_class)
 ```
